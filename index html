@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>मेरी AI वीडियो वेबसाइट</title>
+<style>
+body{font-family:Arial,sans-serif;background:#101528;color:white;text-align:center;padding:20px}
+.box{background:#202943;padding:22px;border-radius:18px;margin-top:25px}
+textarea{width:95%;height:120px;border-radius:10px;padding:10px;font-size:16px}
+button{background:#36c98f;color:#101528;padding:13px;border:0;border-radius:10px;font-size:16px;margin:10px}
+</style>
+</head>
+<body>
+<h1>🎬 मेरी AI वीडियो वेबसाइट</h1>
+<p>अपनी कहानी लिखिए और वीडियो बनाने की शुरुआत कीजिए।</p>
+<div class="box">
+<h2>कहानी से AI वीडियो</h2>
+<textarea id="story" placeholder="यहाँ अपनी हिंदी कहानी लिखें..."></textarea>
+<br>
+<button onclick="makePrompt()">वीडियो प्रॉम्प्ट बनाएँ</button>
+<p id="result"></p>
+</div>
+<div class="box">
+<h2>फोटो से बोलने वाला वीडियो</h2>
+<p>इस सुविधा को आगे जोड़ेंगे।</p>
+</div>
+<script>
+function makePrompt(){
+let s=document.getElementById('story').value.trim();
+document.getElementById('result').innerText=s ? 'आपकी कहानी: '+s+' | इसे AI वीडियो टूल में डालें।' : 'पहले अपनी कहानी लिखें।';
+}
+</script>
+</body>
+</html>
