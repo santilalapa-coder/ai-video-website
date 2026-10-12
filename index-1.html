@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>मेरी मुफ्त AI वीडियो वेबसाइट</title>
+<style>
+:root{font-family:system-ui,-apple-system,"Noto Sans Devanagari",sans-serif;color:#172033;background:#f4f7fb}
+*{box-sizing:border-box}body{margin:0}.wrap{max-width:760px;margin:auto;padding:18px}
+header{background:linear-gradient(135deg,#4338ca,#0f766e);color:white;padding:25px 20px;border-radius:18px}
+h1{margin:0 0 8px;font-size:27px}p{line-height:1.55}.card{background:white;border:1px solid #e2e8f0;border-radius:16px;padding:18px;margin-top:16px;box-shadow:0 4px 18px #1720330c}
+label{display:block;font-weight:700;margin:12px 0 6px}textarea,input{width:100%;font:inherit;padding:12px;border:1px solid #cbd5e1;border-radius:10px;background:white}
+textarea{min-height:125px;resize:vertical}button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:12px 16px;background:#4338ca;color:white;margin-top:12px;cursor:pointer}
+button.secondary{background:#e8eafc;color:#312e81}.hint{font-size:14px;color:#475569}.result{white-space:pre-wrap;background:#f8fafc;border:1px dashed #94a3b8;padding:12px;border-radius:10px;margin-top:12px}
+.notice{background:#fff7ed;border-left:4px solid #ea580c;padding:12px;border-radius:8px}
+</style>
+</head>
+<body><main class="wrap">
+<header><h1>मेरी AI वीडियो वेबसाइट</h1><p>कहानी और फोटो से वीडियो बनाने की शुरुआत — आसान हिंदी में।</p></header>
+<section class="card">
+<h2>🎬 कहानी से AI वीडियो</h2>
+<label for="story">अपनी कहानी लिखें</label>
+<textarea id="story" placeholder="उदाहरण: एक शेर और एक बंदर उल्टी दुनिया में पहुँच जाते हैं..."></textarea>
+<label for="style">वीडियो का अंदाज़</label>
+<select id="style" style="width:100%;font:inherit;padding:12px;border:1px solid #cbd5e1;border-radius:10px">
+<option>सिनेमैटिक और वास्तविक</option><option>3D कार्टून</option><option>कॉमेडी कहानी</option><option>रहस्यमयी उल्टी दुनिया</option>
+</select>
+<button onclick="makePrompt()">वीडियो के लिए प्रॉम्प्ट तैयार करें</button>
+<div id="storyResult" class="result" hidden></div>
+<button class="secondary" onclick="copyText('storyResult')">प्रॉम्प्ट कॉपी करें</button>
+</section>
+<section class="card">
+<h2>🗣️ फोटो से बोलने वाला वीडियो</h2>
+<p>इस शुरुआती नमूने में फोटो चुनने का विकल्प है। यह पेज अकेले फोटो को बोलते वीडियो में नहीं बदल सकता; उसके लिए बाद में सुरक्षित AI वीडियो सेवा जोड़नी होगी।</p>
+<label for="photo">मोबाइल से फोटो चुनें</label><input id="photo" type="file" accept="image/*" onchange="previewPhoto(event)">
+<div id="preview"></div>
+<label for="dialogue">फोटो में व्यक्ति क्या बोले?</label><textarea id="dialogue" placeholder="यहाँ हिंदी में संवाद लिखें..."></textarea>
+<button onclick="makeDialogue()">संवाद तैयार करें</button>
+<div id="dialogueResult" class="result" hidden></div>
+<button class="secondary" onclick="copyText('dialogueResult')">संवाद कॉपी करें</button>
+</section>
+<section class="card"><h2>ℹ️ अभी क्या काम करता है?</h2><p>यह वेबसाइट का शुरुआती मुफ्त नमूना है। यह कहानी के लिए प्रॉम्प्ट और संवाद तैयार करता है। असली AI वीडियो बनाना अभी इससे जुड़ा नहीं है।</p><p class="notice">किसी भी सेवा में फोटो अपलोड करने से पहले उसकी गोपनीयता और शुल्क जाँचें।</p></section>
+</main>
+<script>
+function makePrompt(){const s=document.getElementById('story').value.trim();const st=document.getElementById('style').value;const r=document.getElementById('storyResult');r.hidden=false;r.textContent=s?`हिंदी AI वीडियो प्रॉम्प्ट\nशैली: ${st}\nकहानी: ${s}\n\nनिर्देश: 16:9 वाइडस्क्रीन, HD सिनेमैटिक दृश्य, पात्रों का रूप सभी दृश्यों में एक जैसा, स्वाभाविक हिंदी संवाद, दृश्य-दर-दृश्य क्रम, उचित कैमरा मूवमेंट और कहानी के अंत में रोचक मोड़।`:'पहले अपनी कहानी लिखें।'}
+function makeDialogue(){const d=document.getElementById('dialogue').value.trim();const r=document.getElementById('dialogueResult');r.hidden=false;r.textContent=d?`फोटो-वीडियो संवाद:\n${d}\n\nनिर्देश: स्वाभाविक हिंदी आवाज़, होंठों की गतिविधि संवाद के साथ मेल खाए, चेहरे का रूप मूल फोटो जैसा रहे।`:'पहले संवाद लिखें।'}
+function copyText(id){const t=document.getElementById(id).textContent;if(t)navigator.clipboard?.writeText(t).then(()=>alert('कॉपी हो गया।')).catch(()=>alert('टेक्स्ट को दबाकर चुनें और कॉपी करें।'))}
+function previewPhoto(e){const f=e.target.files[0],box=document.getElementById('preview');box.innerHTML='';if(f){const img=document.createElement('img');img.alt='चुनी गई फोटो';img.style='max-width:100%;max-height:260px;border-radius:12px;margin-top:10px';img.src=URL.createObjectURL(f);box.appendChild(img)}}
+</script></body></html>
