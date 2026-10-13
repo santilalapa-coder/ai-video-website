@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>मेरी मुफ्त AI वीडियो वेबसाइट</title>
+<style>
+:root{--bg:#0b1020;--panel:#141c32;--panel2:#10172a;--text:#f4f7ff;--muted:#aab6d3;--accent:#7c5cff;--accent2:#19c6b4;--line:#293451}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:radial-gradient(circle at top right,#24245a 0,transparent 35%),var(--bg);color:var(--text);line-height:1.55}
+header{padding:22px 16px;border-bottom:1px solid var(--line);background:#0b1020d9;position:sticky;top:0;backdrop-filter:blur(12px);z-index:2}
+.nav{max-width:1000px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.brand{font-weight:800;font-size:20px}.brand span{color:var(--accent2)}.tag{font-size:12px;color:#d9fff9;border:1px solid #277f79;padding:5px 9px;border-radius:99px}
+main{max-width:1000px;margin:0 auto;padding:28px 16px 50px}.hero{text-align:center;padding:25px 0 30px}.hero h1{font-size:clamp(28px,5vw,46px);line-height:1.15;margin:0 0 14px}.hero h1 em{font-style:normal;color:var(--accent2)}.hero p{max-width:650px;margin:0 auto;color:var(--muted)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.tab{flex:1;min-width:145px;border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:12px;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer}.tab.active{background:linear-gradient(120deg,#6b4cf6,#276fcb);border-color:transparent}
+.card{background:linear-gradient(145deg,#171f38,#10172a);border:1px solid var(--line);border-radius:18px;padding:20px;margin-bottom:16px;box-shadow:0 12px 35px #0002}.card h2{font-size:20px;margin:0 0 5px}.hint{font-size:13px;color:var(--muted);margin:0 0 16px}
+label{display:block;font-weight:650;margin:14px 0 7px}input,textarea,select{width:100%;padding:13px 14px;border-radius:11px;border:1px solid #364362;background:#0b1224;color:var(--text);font:inherit;outline:none}textarea{min-height:120px;resize:vertical}input:focus,textarea:focus,select:focus{border-color:var(--accent2)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.btn{border:0;border-radius:11px;padding:12px 16px;font:inherit;font-weight:750;cursor:pointer}.primary{background:linear-gradient(120deg,#7c5cff,#3d7eff);color:white}.secondary{background:#202b47;color:white;border:1px solid #3a496c}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.output{display:none;margin-top:16px}.output.show{display:block}.output textarea{min-height:150px}.note{border-left:3px solid var(--accent2);padding:10px 13px;background:#102a2b;border-radius:8px;color:#d9fffa;font-size:13px;margin-top:14px}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:25px 12px;border-top:1px solid var(--line)}
+.hidden{display:none!important}
+@media(max-width:620px){.grid{grid-template-columns:1fr}.card{padding:16px}.hero{padding-top:15px}}
+</style>
+</head>
+<body>
+<header><div class="nav"><div class="brand">✨ मेरी <span>AI वीडियो</span> वेबसाइट</div><div class="tag">शुरुआत के लिए मुफ्त</div></div></header>
+<main>
+<section class="hero"><h1>आपकी कहानी, <em>आपका वीडियो</em></h1><p>हिंदी में कहानी और वीडियो प्रॉम्प्ट तैयार करें। अपनी कहानी लिखें, वीडियो का आकार चुनें और तैयार निर्देश कॉपी करें।</p></section>
+<div class="tabs" role="tablist">
+<button class="tab active" data-tab="story">🎬 कहानी से वीडियो</button>
+<button class="tab" data-tab="photo">🗣️ फोटो से बोलता वीडियो</button>
+</div>
+<section id="story" class="card">
+<h2>🎬 कहानी से AI वीडियो</h2><p class="hint">अपनी कहानी के लिए दृश्य-दर-दृश्य प्रॉम्प्ट तैयार करें।</p>
+<label for="storyText">अपनी कहानी लिखें</label>
+<textarea id="storyText" placeholder="उदाहरण: एक चालाक बंदर और बहादुर इंसान उल्टी दुनिया के रहस्य को खोजते हैं..."></textarea>
+<div class="grid">
+<div><label for="style">वीडियो का अंदाज़</label><select id="style"><option>रियलिस्टिक सिनेमैटिक</option><option>3D कार्टून</option><option>कॉमेडी</option><option>रहस्यमयी कहानी</option><option>गाँव की कहानी</option></select></div>
+<div><label for="ratio">वीडियो का आकार</label><select id="ratio"><option value="16:9">16:9 — YouTube</option><option value="9:16">9:16 — Reels / Shorts</option><option value="1:1">1:1 — Square</option></select></div>
+<div><label for="duration">वीडियो की लंबाई</label><select id="duration"><option>30 सेकंड</option><option>1 मिनट</option><option selected>2–3 मिनट</option><option>5 मिनट</option></select></div>
+<div><label for="language">बोलने की भाषा</label><select id="language"><option>स्वाभाविक हिंदी</option><option>हिंदी और राजस्थानी अंदाज़</option><option>बिना संवाद, केवल संगीत</option></select></div>
+</div>
+<div class="actions"><button class="btn primary" id="makeStory">मेरे प्रॉम्प्ट बनाओ</button><button class="btn secondary" id="clearStory">साफ़ करें</button></div>
+<div class="output" id="storyOutput"><label for="storyResult">तैयार प्रॉम्प्ट</label><textarea id="storyResult" readonly></textarea><div class="actions"><button class="btn primary" id="copyStory">प्रॉम्प्ट कॉपी करें</button></div></div>
+<div class="note">ध्यान दें: यह पेज कहानी और प्रॉम्प्ट बनाता है। असली AI वीडियो बनाने के लिए किसी वीडियो जनरेटर की सेवा/API चाहिए; यह फ़ाइल अकेले वीडियो रेंडर नहीं करती और किसी paid API से जुड़ी नहीं है।</div>
+</section>
+<section id="photo" class="card hidden">
+<h2>🗣️ फोटो से बोलता वीडियो</h2><p class="hint">फोटो और संवाद के लिए निर्देश तैयार करें।</p>
+<label for="photoDesc">फोटो में व्यक्ति का छोटा विवरण</label><input id="photoDesc" placeholder="उदाहरण: नीली शर्ट पहने व्यक्ति, सामने की ओर देख रहा है">
+<label for="dialogue">व्यक्ति क्या बोले?</label><textarea id="dialogue" placeholder="यहाँ अपना हिंदी संवाद लिखें..."></textarea>
+<div class="grid"><div><label for="photoRatio">वीडियो का आकार</label><select id="photoRatio"><option>9:16 — Reels / Story</option><option>16:9 — YouTube</option></select></div><div><label for="voice">आवाज़</label><select id="voice"><option>स्वाभाविक हिंदी पुरुष आवाज़</option><option>स्वाभाविक हिंदी महिला आवाज़</option><option>अपनी पसंद की आवाज़</option></select></div></div>
+<div class="actions"><button class="btn primary" id="makePhoto">फोटो वीडियो प्रॉम्प्ट बनाओ</button><button class="btn secondary" id="clearPhoto">साफ़ करें</button></div>
+<div class="output" id="photoOutput"><label for="photoResult">तैयार प्रॉम्प्ट</label><textarea id="photoResult" readonly></textarea><div class="actions"><button class="btn primary" id="copyPhoto">प्रॉम्प्ट कॉपी करें</button></div></div>
+<div class="note">यहाँ फोटो अपलोड करके वीडियो बनना अभी सक्षम नहीं है। यह प्रॉम्प्ट तैयार करता है; बोलता वीडियो बनाने के लिए अलग सेवा की ज़रूरत होगी।</div>
+</section>
+<section class="card"><h2>यह वेबसाइट मुफ्त कैसे रहेगी?</h2><p class="hint" style="margin-bottom:0">इस HTML फ़ाइल में कोई भुगतान, सदस्यता या API key नहीं है। GitHub Pages पर इसे होस्ट करना सामान्यतः मुफ्त है। AI वीडियो जनरेशन की बाहरी सेवाओं की अपनी सीमाएँ या शुल्क हो सकते हैं।</p></section>
+</main>
+<footer>मेरी मुफ्त AI वीडियो वेबसाइट · मोबाइल पर इस्तेमाल के लिए बनाई गई</footer>
+<script>
+const tabs=document.querySelectorAll('.tab');
+tabs.forEach(btn=>btn.addEventListener('click',()=>{tabs.forEach(b=>b.classList.toggle('active',b===btn));document.querySelectorAll('main > section.card').forEach(s=>{});document.getElementById('story').classList.toggle('hidden',btn.dataset.tab!=='story');document.getElementById('photo').classList.toggle('hidden',btn.dataset.tab!=='photo')}));
+document.getElementById('makeStory').addEventListener('click',()=>{const story=document.getElementById('storyText').value.trim();if(!story){alert('पहले अपनी कहानी लिखें।');return;}const style=document.getElementById('style').value,ratio=document.getElementById('ratio').value,duration=document.getElementById('duration').value,lang=document.getElementById('language').value;document.getElementById('storyResult').value=`मेरी कहानी पर ${duration} का ${style} AI वीडियो बनाओ।\\nवीडियो अनुपात: ${ratio}।\\nभाषा: ${lang}।\\nकहानी: ${story}\\n\\nनिर्देश: कहानी को क्रमवार छोटे दृश्यों में बाँटो। हर दृश्य में पात्रों का रूप एक जैसा रहे। कैमरा मूवमेंट, रोशनी, माहौल और पात्रों की गतिविधियाँ स्पष्ट लिखो। संवाद स्वाभाविक हों। हर दृश्य का अलग वीडियो प्रॉम्प्ट दो और कहानी का अंत रोचक रखो। कोई अनचाहा टेक्स्ट या वॉटरमार्क न जोड़ो।`;document.getElementById('storyOutput').classList.add('show')});
+document.getElementById('clearStory').addEventListener('click',()=>{document.getElementById('storyText').value='';document.getElementById('storyOutput').classList.remove('show')});
+document.getElementById('makePhoto').addEventListener('click',()=>{const desc=document.getElementById('photoDesc').value.trim(),dialogue=document.getElementById('dialogue').value.trim();if(!dialogue){alert('पहले संवाद लिखें।');return;}document.getElementById('photoResult').value=`दी गई फोटो के व्यक्ति का चेहरा और पहचान यथासंभव स्थिर रखें।\\nव्यक्ति का विवरण: ${desc||'फोटो में दिख रहा व्यक्ति'}।\\nवीडियो आकार: ${document.getElementById('photoRatio').value}।\\nआवाज़: ${document.getElementById('voice').value}।\\nसंवाद: “${dialogue}”\\nनिर्देश: होंठों की गति संवाद से मेल खाए, चेहरे के भाव स्वाभाविक हों, कैमरा स्थिर रहे और वीडियो साफ़ हो।`;document.getElementById('photoOutput').classList.add('show')});
+document.getElementById('clearPhoto').addEventListener('click',()=>{document.getElementById('photoDesc').value='';document.getElementById('dialogue').value='';document.getElementById('photoOutput').classList.remove('show')});
+async function copyField(id){const el=document.getElementById(id);try{await navigator.clipboard.writeText(el.value);alert('प्रॉम्प्ट कॉपी हो गया।');}catch(e){el.select();document.execCommand('copy');alert('प्रॉम्प्ट कॉपी करने की कोशिश की गई।');}}
+document.getElementById('copyStory').addEventListener('click',()=>copyField('storyResult'));document.getElementById('copyPhoto').addEventListener('click',()=>copyField('photoResult'));
+</script>
+</body>
+</html>
